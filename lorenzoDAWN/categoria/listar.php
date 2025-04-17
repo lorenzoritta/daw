@@ -1,9 +1,9 @@
 <?php
-include_once "../class/cliente.class.php";
-include_once "../class/clienteDAO.class.php";
+include_once "../class/categoria.class.php";
+include_once "../class/categoriaDAO.class.php";
 
-$objclientesDAO = new clienteDAO();
-$retorno = $objclienteDAO->listar();
+$objclientesDAO = new categoriaDAO();
+$retorno = $objclientesDAO->listar();
 
 /*
 echo "<pre>";
@@ -17,11 +17,10 @@ if (isset($_POST["editarErro"]))
 echo "<a href= 'inserir.php'>Inserir</a><br />";
 foreach ($retorno as $linha) {
     echo "nome: " . $linha["nome"];
-    echo "<br/ >email:" . $linha["email"];
     echo "<br/>
-    <a href='editar.php?id=" . $linha["id_cliente"] . "'>
+    <a href='editar.php?id=" . $linha["id_categoria"] . "'>
     editar</a>
-    <a href='excluir.php?id=" . $linha["id_cliente"] . "'>
+    <a href='excluir.php?id=" . $linha["id_categoria"] . "'>
     excluir</a>
 
     <br  /><br  />";
