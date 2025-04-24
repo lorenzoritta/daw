@@ -3,6 +3,9 @@
 // print_r($_POST);
 include_once "../class/produto.class.php";
 include_once "../class/produtoDAO.class.php";
+//print_r($_POST);
+include_once "../class/imagem.class.php";
+include_once "../class/imagemDAO.class.php";
 
 $obj = new Produto();
 $obj->setNome($_POST["nome"]);
@@ -16,9 +19,23 @@ $obj->setNum_volumes($_POST["num_volumes"]);
 
 $objDAO = new ProdutoDAO();
 $retorno = $objDAO->inserir($obj);
+$obj = new imagem();
+$obj->setId_manga($retorno);
+$objDAO = new imagemDAO();
+
+for ($i = 0; $i < count($_FILES["imagem"]["name"]); $i++) {
+    $nome = $_FILES["imagem"]["name"][$i];
+    $nomeTmp = $_FILES["imagem"]["tmp_name"][$i];
+    $diretorio = "../img/" . $nome;
+    if (move_uploaded_file($nomeTmp, $diretorio)) {
+        $obj->setNome($nome);
+        $objDAO->inserir($obj);
+    }
+
+}
 
 if ($retorno)
-    echo "Produto adicionado com sucesso";
+    echo "Adicionado com sucesso";
 else
-    echo "Erro! Por favor, consulte um administrador.";
+    echo "Erro! Por favor, consulte um adm";
 ?>

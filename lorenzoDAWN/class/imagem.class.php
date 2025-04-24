@@ -1,38 +1,28 @@
 <?php
-class Produto
-{
+class imagem {
     private $id_manga;
     private $nome;
-    private $id_imagem;
+    private $idimagem;
 
-    public function getId_imagem()
-    {
-        return $this->id_imagem;
-    }
-
-    public function setId_imagem($valor)
-    {
-        $this->Id_imagem = $valor;
-    }
-
-    public function getid_manga()
-    {
+    public function getId_manga() {
         return $this->id_manga;
     }
-
-    public function setid_manga($valor)
-    {
+    public function setId_manga($valor) {
         $this->id_manga = $valor;
     }
 
-    public function getNome()
-    {
+    public function getNome() {
         return $this->nome;
     }
-
-    public function setNome($valor)
-    {
+    public function setNome($valor) {
         $this->nome = $valor;
+    }
+
+    public function getIdimagem() {
+        return $this->idimagem;
+    }
+    public function setIdimagem($valor) {
+        $this->idimagem = $valor;
     }
 }
 ?>

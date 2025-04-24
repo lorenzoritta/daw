@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="inserir_ok.php" method="post">
+    <form action="inserir_ok.php" method="post" enctype="multipart/form-data">
         Nome do Manga:
         <input type="text" name="nome" required />
         <br>
@@ -33,6 +33,8 @@
         Número de Volumes:
         <input type="number" name="num_volumes" required />
         <br>
+        imagem:
+        <input type="file" name="imagem[]" multiple />
         <button type="submit">Enviar</button>
     </form>
 </body>
